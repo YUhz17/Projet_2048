@@ -1,38 +1,78 @@
 #include "matrice2048.h"
 
+
 matrice2048::matrice2048(QObject *parent) : QObject(parent)
 {
     mat=new int*[4];
-    for (int i=0;i<4;i++)
+    mat_back=new int*[4];
+    for (int i=0;i<4;i++){
         mat[i]=new int[4];
+        mat_back[i]=new int[4];
+    }
     for (int i=0;i<4;i++)
-        for (int j=0;j<4;j++)
+        for (int j=0;j<4;j++){
             mat[i][j]=0;
+            mat_back[i][j]=0;
+        }
     score=0;
+    score_back=0;
     best_score=0;
     initial();
 }
 
 void matrice2048::GameInitial(){
     for (int i=0;i<4;i++)
-        for (int j=0;j<4;j++)
+        for (int j=0;j<4;j++){
             mat[i][j]=0;
+            mat_back[i][j]=0;
+        }
     score=0;
+    score_back=0;
     initial();
 }
 
 void matrice2048::initial()
 {
     srand((int)time(NULL));
-    int ran_num=rand()%16;//生成一个0到15之间到随机数
-    while (mat[ran_num/4][ran_num%4] !=0)//如果这个位置不为0的话再生成一个
-        ran_num=rand()%16;
-    mat[ran_num/4][ran_num%4]=2;//在这个位置生成2
+    if (ismatricefull())
+        ;//a modifier
+    else{
+        int ran_num=rand()%16;//生成一个0到15之间到随机数
+        int ran_num2=rand()%16;//如果ran_num2==15,那么生成4，不然生成2
+        while (mat[ran_num/4][ran_num%4] !=0)//如果这个位置不为0的话再生成一个
+            ran_num=rand()%16;
+        if(ran_num2==15)
+            mat[ran_num/4][ran_num%4]=4;
+        else
+            mat[ran_num/4][ran_num%4]=2;//在这个位置生成2
+        cptChanged();
+    }
+}
+
+bool matrice2048::ismatricefull()
+{
+    for(int i=0;i<4;i++)
+        for(int j=0;j<4;j++)
+            if(mat[i][j]==0)
+                return 0;
+    return 1;
+}
+
+void matrice2048::GetBack()
+{
+    for (int i=0;i<4;i++)
+        for (int j=0;j<4;j++)
+            mat[i][j]=mat_back[i][j];
+    score=score_back;
     cptChanged();
 }
 
 void matrice2048::Left()
 {
+    for (int i=0;i<4;i++)
+        for (int j=0;j<4;j++)
+            mat_back[i][j]=mat[i][j];
+    score_back=score;
     int flag=0;//判断矩阵有没有进行变化，1为变化，0为不变
     for(int i=0;i<4;i++)
         for(int j=0;j<4;j++){
@@ -83,6 +123,10 @@ void matrice2048::Left()
 
 void matrice2048::Right()
 {
+    for (int i=0;i<4;i++)
+        for (int j=0;j<4;j++)
+            mat_back[i][j]=mat[i][j];
+    score_back=score;
     int flag=0;//判断矩阵有没有进行变化，1为变化，0为不变
     for(int i=0;i<4;i++)
         for(int j=3;j>=0;j--){
@@ -135,6 +179,10 @@ void matrice2048::Right()
 
 void matrice2048::Up()
 {
+    for (int i=0;i<4;i++)
+        for (int j=0;j<4;j++)
+            mat_back[i][j]=mat[i][j];
+    score_back=score;
     int flag=0;//判断矩阵有没有进行变化，1为变化，0为不变
     for(int j=0;j<4;j++)
         for(int i=0;i<4;i++){
@@ -149,7 +197,7 @@ void matrice2048::Up()
                     mat[i][j]=0;
                     score+=mat[i+2][j];
                 }
-                else if(j<1 &&mat[i+1][j]==0 && mat[i+2][j]==0 && mat[i][j]==mat[i+3][j]){//和右边第二个相等且中间那个为0
+                else if(i<1 &&mat[i+1][j]==0 && mat[i+2][j]==0 && mat[i][j]==mat[i+3][j]){//和右边第二个相等且中间那个为0
                     mat[i+3][j]=2*mat[i][j];
                     mat[i][j]=0;
                     score+=mat[i+3][j];
@@ -185,21 +233,25 @@ void matrice2048::Up()
 
 void matrice2048::Down()
 {
+    for (int i=0;i<4;i++)
+        for (int j=0;j<4;j++)
+            mat_back[i][j]=mat[i][j];
+    score_back=score;
     int flag=0;//判断矩阵有没有进行变化，1为变化，0为不变
     for(int j=0;j<4;j++)
         for(int i=3;i>=0;i--){
             if(mat[i][j]!=0){
-                if(j>0 && mat[i][j]==mat[i-1][j]){//和右边那个相等
+                if(i>0 && mat[i][j]==mat[i-1][j]){//和右边那个相等
                     mat[i-1][j]=2*mat[i][j];
                     mat[i][j]=0;
                     score+=mat[i-1][j];
                 }
-                else if(j>1 &&mat[i-1][j]==0 && mat[i][j]==mat[i-2][j]){//和右边第二个相等且中间那个为0
+                else if(i>1 &&mat[i-1][j]==0 && mat[i][j]==mat[i-2][j]){//和右边第二个相等且中间那个为0
                     mat[i-2][j]=2*mat[i][j];
                     mat[i][j]=0;
-                    score+=mat[i+2][j];
+                    score+=mat[i-2][j];
                 }
-                else if(j>2 &&mat[i-1][j]==0 && mat[i-2][j]==0 && mat[i][j]==mat[i-3][j]){//和右边第二个相等且中间那个为0
+                else if(i>2 &&mat[i-1][j]==0 && mat[i-2][j]==0 && mat[i][j]==mat[i-3][j]){//和右边第二个相等且中间那个为0
                     mat[i-3][j]=2*mat[i][j];
                     mat[i][j]=0;
                     score+=mat[i-3][j];
@@ -233,6 +285,55 @@ void matrice2048::Down()
 
 }
 
+QList<QString> matrice2048::readMatrice()
+{
+    QList<QString> a;
+    for(int i=0;i<4;i++)
+        for(int j=0;j<4;j++){
+            if(mat[i][j]==0)
+                a.append(" ");
+            else{
+                a.append(QString::number(mat[i][j]));
+            }
+        }
+    return a;
+}
+
+QList<QString> matrice2048::readCouleur()
+{
+    QList<QString> couleur;
+    for(int i=0;i<4;i++)
+        for(int j=0;j<4;j++){
+            if(mat[i][j]==0)
+                couleur.append("#ffffff");
+            else if(mat[i][j]==2)
+                couleur.append("#e1d0d0");
+            else if(mat[i][j]==4)
+                couleur.append("#f9eaea");
+            else if(mat[i][j]==8)
+                couleur.append("#f2cdcd");
+            else if(mat[i][j]==16)
+                couleur.append("#ee9f9f");
+            else if(mat[i][j]==32)
+                couleur.append("#e49797");
+            else if(mat[i][j]==64)
+                couleur.append("#ea5151");
+            else if(mat[i][j]==128)
+                couleur.append("#f05454");
+            else if(mat[i][j]==256)
+                couleur.append("#e82e2e");
+            else if(mat[i][j]==512)
+                couleur.append("#ee3636");
+            else if(mat[i][j]==1024)
+                couleur.append("#ff0014");
+            else if(mat[i][j]==2048)
+                couleur.append("#ba0e1b");
+            else if(mat[i][j]==4096)
+                couleur.append("#8a1a1a");
+        }
+    return couleur;
+}
+
 QString matrice2048::readScore()
 {
     return QString::number(score);
@@ -245,130 +346,3 @@ QString matrice2048::readBest()
     return QString::number(best_score);
 }
 
-QString matrice2048::readMatrice11()
-{
-    if(mat[0][0]!=0)//不为0的时候显示数值，为0的时候不显示
-        return QString::number(mat[0][0]);
-    else
-        return QString(" ");
-}
-
-QString matrice2048::readMatrice12()
-{
-    if(mat[0][1]!=0)
-        return QString::number(mat[0][1]);
-    else
-        return QString(" ");
-}
-
-QString matrice2048::readMatrice13()
-{
-    if(mat[0][2]!=0)
-        return QString::number(mat[0][2]);
-    else
-        return QString(" ");
-}
-
-QString matrice2048::readMatrice14()
-{
-    if(mat[0][3]!=0)
-        return QString::number(mat[0][3]);
-    else
-        return QString(" ");
-}
-
-QString matrice2048::readMatrice21()
-{
-    if(mat[1][0]!=0)
-        return QString::number(mat[1][0]);
-    else
-        return QString(" ");
-}
-
-QString matrice2048::readMatrice22()
-{
-    if(mat[1][1]!=0)
-        return QString::number(mat[1][1]);
-    else
-        return QString(" ");
-}
-
-QString matrice2048::readMatrice23()
-{
-    if(mat[1][2]!=0)
-        return QString::number(mat[1][2]);
-    else
-        return QString(" ");
-}
-
-QString matrice2048::readMatrice24()
-{
-    if(mat[1][3]!=0)
-        return QString::number(mat[1][3]);
-    else
-        return QString(" ");
-}
-
-QString matrice2048::readMatrice31()
-{
-    if(mat[2][0]!=0)
-        return QString::number(mat[2][0]);
-    else
-        return QString(" ");
-}
-
-QString matrice2048::readMatrice32()
-{
-    if(mat[2][1]!=0)
-        return QString::number(mat[2][1]);
-    else
-        return QString(" ");
-}
-
-QString matrice2048::readMatrice33()
-{
-    if(mat[2][2]!=0)
-        return QString::number(mat[2][2]);
-    else
-        return QString(" ");
-}
-
-QString matrice2048::readMatrice34()
-{
-    if(mat[2][3]!=0)
-        return QString::number(mat[2][3]);
-    else
-        return QString(" ");
-}
-
-QString matrice2048::readMatrice41()
-{
-    if(mat[3][0]!=0)
-        return QString::number(mat[3][0]);
-    else
-        return QString(" ");
-}
-
-QString matrice2048::readMatrice42()
-{
-    if(mat[3][1]!=0)
-        return QString::number(mat[3][1]);
-    else
-        return QString(" ");
-}
-
-QString matrice2048::readMatrice43()
-{
-    if(mat[3][2]!=0)
-        return QString::number(mat[3][2]);
-    else
-        return QString(" ");
-}
-
-QString matrice2048::readMatrice44()
-{
-    if(mat[3][3]!=0)
-        return QString::number(mat[3][3]);
-    else
-        return QString(" ");
-}

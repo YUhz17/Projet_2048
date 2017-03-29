@@ -25,7 +25,7 @@ ApplicationWindow {
     MainForm {
         anchors.fill: parent
         button1.onClicked: vueObjetCpt.GameInitial();
-        button2.onClicked: messageDialog.show(qsTr("Button 2 pressed"))
+        button2.onClicked: vueObjetCpt.GetBack();
     }
 
     MessageDialog {

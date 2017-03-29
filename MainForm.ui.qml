@@ -61,12 +61,12 @@ Item {
 
         Button {
             id: button1
-            text: qsTr("New game")
+            text: qsTr("New Game")
         }
 
         Button {
             id: button2
-            text: qsTr("Press Me 2")
+            text: qsTr("Back")
         }
     }
 
@@ -84,7 +84,7 @@ Item {
             y: 13
             width: 60
             height: 60
-            color: "#e1d0d0"
+            color: vueObjetCpt.cptQMLcouleur[0]
             radius: 0
             border.width: 0
 
@@ -92,7 +92,7 @@ Item {
                 id: rect11
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML11
+                text: vueObjetCpt.cptQML[0]
                 focus: true
                 font.pixelSize: 12
             }
@@ -106,13 +106,13 @@ Item {
             y: 13
             width: 60
             height: 60
-            color: "#f9eaea"
+            color: vueObjetCpt.cptQMLcouleur[1]
 
             Text {
                 id: text6
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML12
+                text: vueObjetCpt.cptQML[1]
                 focus: true
                 font.pixelSize: 12
             }
@@ -124,13 +124,13 @@ Item {
             y: 13
             width: 60
             height: 60
-            color: "#f2cdcd"
+            color: vueObjetCpt.cptQMLcouleur[2]
 
             Text {
                 id: text1
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML13
+                text: vueObjetCpt.cptQML[2]
                 focus: true
                 font.pixelSize: 12
             }
@@ -142,13 +142,13 @@ Item {
             y: 13
             width: 60
             height: 60
-            color: "#ee9f9f"
+            color: vueObjetCpt.cptQMLcouleur[3]
 
             Text {
                 id: text7
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML14
+                text: vueObjetCpt.cptQML[3]
                 focus: true
                 font.pixelSize: 12
             }
@@ -160,13 +160,13 @@ Item {
             y: 87
             width: 60
             height: 60
-            color: "#ffffff"
+            color: vueObjetCpt.cptQMLcouleur[4]
 
             Text {
                 id: text8
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML21
+                text: vueObjetCpt.cptQML[4]
                 focus: true
                 font.pixelSize: 12
             }
@@ -178,13 +178,13 @@ Item {
             y: 87
             width: 60
             height: 60
-            color: "#ffffff"
+            color: vueObjetCpt.cptQMLcouleur[5]
 
             Text {
                 id: text9
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML22
+                text: vueObjetCpt.cptQML[5]
                 focus: true
                 font.pixelSize: 12
             }
@@ -196,13 +196,13 @@ Item {
             y: 87
             width: 60
             height: 60
-            color: "#ffffff"
+            color: vueObjetCpt.cptQMLcouleur[6]
 
             Text {
                 id: text10
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML23
+                text: vueObjetCpt.cptQML[6]
                 focus: true
                 font.pixelSize: 12
             }
@@ -214,13 +214,13 @@ Item {
             y: 87
             width: 60
             height: 60
-            color: "#e49797"
+            color: vueObjetCpt.cptQMLcouleur[7]
 
             Text {
                 id: text11
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML24
+                text: vueObjetCpt.cptQML[7]
                 focus: true
                 font.pixelSize: 12
             }
@@ -232,13 +232,13 @@ Item {
             y: 159
             width: 60
             height: 60
-            color: "#ba0e1b"
+            color: vueObjetCpt.cptQMLcouleur[8]
 
             Text {
                 id: text12
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML31
+                text: vueObjetCpt.cptQML[8]
                 focus: true
                 font.pixelSize: 12
             }
@@ -250,13 +250,13 @@ Item {
             y: 159
             width: 60
             height: 60
-            color: "#8a1a1a"
+            color: vueObjetCpt.cptQMLcouleur[9]
 
             Text {
                 id: text13
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML32
+                text: vueObjetCpt.cptQML[9]
                 focus: true
                 font.pixelSize: 12
             }
@@ -268,13 +268,13 @@ Item {
             y: 159
             width: 60
             height: 60
-            color: "#ffffff"
+            color: vueObjetCpt.cptQMLcouleur[10]
 
             Text {
                 id: text14
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML33
+                text: vueObjetCpt.cptQML[10]
                 focus: true
                 font.pixelSize: 12
             }
@@ -286,13 +286,13 @@ Item {
             y: 159
             width: 60
             height: 60
-            color: "#ea5151"
+            color: vueObjetCpt.cptQMLcouleur[11]
 
             Text {
                 id: text15
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML34
+                text: vueObjetCpt.cptQML[11]
                 focus: true
                 font.pixelSize: 12
             }
@@ -304,13 +304,13 @@ Item {
             y: 231
             width: 60
             height: 60
-            color: "#ff0014"
+            color: vueObjetCpt.cptQMLcouleur[12]
 
             Text {
                 id: text16
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML41
+                text: vueObjetCpt.cptQML[12]
                 focus: true
                 font.pixelSize: 12
             }
@@ -322,13 +322,13 @@ Item {
             y: 231
             width: 60
             height: 60
-            color: "#ee3636"
+            color: vueObjetCpt.cptQMLcouleur[13]
 
             Text {
                 id: text17
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML42
+                text: vueObjetCpt.cptQML[13]
                 focus: true
                 font.pixelSize: 12
             }
@@ -340,13 +340,13 @@ Item {
             y: 231
             width: 60
             height: 60
-            color: "#e82e2e"
+            color: vueObjetCpt.cptQMLcouleur[14]
 
             Text {
                 id: text18
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML43
+                text: vueObjetCpt.cptQML[14]
                 focus: true
                 font.pixelSize: 12
             }
@@ -358,13 +358,13 @@ Item {
             y: 231
             width: 60
             height: 60
-            color: "#f05454"
+            color: vueObjetCpt.cptQMLcouleur[15]
 
             Text {
                 id: text19
                 x: 17
                 y: 23
-                text: vueObjetCpt.cptQML44
+                text: vueObjetCpt.cptQML[15]
                 focus: true
                 font.pixelSize: 12
             }
