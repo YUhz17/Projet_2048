@@ -12,7 +12,6 @@ Item {
     property alias text1: text1
     property alias text7: text7
     property alias text8: text8
-    property alias text9: text9
     property alias text11: text11
     property alias text10: text10
     property alias text13: text13
@@ -51,8 +50,6 @@ Item {
     property alias button1: button1
     property alias button2: button2
 
-
-
     RowLayout {
         id: rowLayout
         anchors.verticalCenterOffset: -132
@@ -90,15 +87,24 @@ Item {
 
             Text {
                 id: rect11
-                x: 17
-                y: 23
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[0]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
-
         }
-
 
         Rectangle {
             id: rec12
@@ -110,11 +116,22 @@ Item {
 
             Text {
                 id: text6
-                x: 17
-                y: 23
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[1]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
         }
 
@@ -128,11 +145,22 @@ Item {
 
             Text {
                 id: text1
-                x: 17
-                y: 23
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[2]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
         }
 
@@ -146,11 +174,22 @@ Item {
 
             Text {
                 id: text7
-                x: 17
-                y: 23
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[3]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
         }
 
@@ -164,11 +203,22 @@ Item {
 
             Text {
                 id: text8
-                x: 17
-                y: 23
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[4]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
         }
 
@@ -181,12 +231,23 @@ Item {
             color: vueObjetCpt.cptQMLcouleur[5]
 
             Text {
-                id: text9
-                x: 17
-                y: 23
+                id: text20
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[5]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
         }
 
@@ -200,11 +261,22 @@ Item {
 
             Text {
                 id: text10
-                x: 17
-                y: 23
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[6]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
         }
 
@@ -218,11 +290,22 @@ Item {
 
             Text {
                 id: text11
-                x: 17
-                y: 23
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[7]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
         }
 
@@ -236,11 +319,22 @@ Item {
 
             Text {
                 id: text12
-                x: 17
-                y: 23
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[8]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
         }
 
@@ -254,11 +348,22 @@ Item {
 
             Text {
                 id: text13
-                x: 17
-                y: 23
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[9]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
         }
 
@@ -272,11 +377,22 @@ Item {
 
             Text {
                 id: text14
-                x: 17
-                y: 23
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[10]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
         }
 
@@ -290,11 +406,22 @@ Item {
 
             Text {
                 id: text15
-                x: 17
-                y: 23
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[11]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
         }
 
@@ -308,11 +435,22 @@ Item {
 
             Text {
                 id: text16
-                x: 17
-                y: 23
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[12]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
         }
 
@@ -326,11 +464,22 @@ Item {
 
             Text {
                 id: text17
-                x: 17
-                y: 23
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[13]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
         }
 
@@ -344,11 +493,22 @@ Item {
 
             Text {
                 id: text18
-                x: 17
-                y: 23
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[14]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
         }
 
@@ -362,30 +522,41 @@ Item {
 
             Text {
                 id: text19
-                x: 17
-                y: 23
+                x: 0
+                y: 0
+                width: 60
+                height: 60
                 text: vueObjetCpt.cptQML[15]
+                font.family: "Times New Roman"
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.NoWrap
+                fontSizeMode: Text.Fit
+                textFormat: Text.AutoText
+                elide: Text.ElideMiddle
+                font.pixelSize: 20
+                font.bold: true
+                renderType: Text.QtRendering
                 focus: true
-                font.pixelSize: 12
             }
         }
 
-        Keys.onPressed: {
-          switch (event.key) {
-            case Qt.Key_Up:
-              vueObjetCpt.Up();
-              break;
-            case Qt.Key_Down:
-              vueObjetCpt.Down();
-              break;
-            case Qt.Key_Left:
-              vueObjetCpt.Left();
-              break;
-            case Qt.Key_Right:
-              vueObjetCpt.Right();
-              break;
-          }
-        }
+                Keys.onPressed: {
+                  switch (event.key) {
+                    case Qt.Key_Up:
+                      vueObjetCpt.Up();
+                      break;
+                    case Qt.Key_Down:
+                      vueObjetCpt.Down();
+                      break;
+                    case Qt.Key_Left:
+                      vueObjetCpt.Left();
+                      break;
+                    case Qt.Key_Right:
+                      vueObjetCpt.Right();
+                      break;
+                  }
+                }
     }
 
     Text {
@@ -406,7 +577,7 @@ Item {
 
     Rectangle {
         id: score
-        x: 296
+        x: 275
         y: 27
         width: 71
         height: 57
@@ -419,29 +590,34 @@ Item {
             width: 44
             height: 22
             text: qsTr("Score")
-            font.bold: true
+            font.family: "Times New Roman"
+            font.bold: false
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             fontSizeMode: Text.FixedSize
-            font.pixelSize: 13
+            font.pixelSize: 15
         }
 
         Text {
             id: text3
             x: 15
-            y: 34
+            y: 26
+            width: 43
+            height: 24
             text: vueObjetCpt.cptQMLscore
+            fontSizeMode: Text.Fit
+            elide: Text.ElideMiddle
             focus: true
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             font.bold: true
-            font.pixelSize: 13
+            font.pixelSize: 15
         }
     }
 
     Rectangle {
         id: best
-        x: 373
+        x: 367
         y: 27
         width: 71
         height: 57
@@ -453,8 +629,9 @@ Item {
             width: 44
             height: 22
             text: "Best"
+            font.family: "Times New Roman"
             verticalAlignment: Text.AlignVCenter
-            font.pixelSize: 13
+            font.pixelSize: 15
             font.bold: true
             fontSizeMode: Text.FixedSize
             horizontalAlignment: Text.AlignHCenter
@@ -463,15 +640,17 @@ Item {
         Text {
             id: text5
             x: 15
-            y: 34
+            y: 26
+            width: 43
+            height: 24
             text: vueObjetCpt.cptQMLbest
+            fontSizeMode: Text.Fit
+            elide: Text.ElideMiddle
             focus: true
             verticalAlignment: Text.AlignVCenter
-            font.pixelSize: 13
+            font.pixelSize: 16
             font.bold: true
             horizontalAlignment: Text.AlignHCenter
         }
     }
-
-
 }

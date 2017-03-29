@@ -307,27 +307,27 @@ QList<QString> matrice2048::readCouleur()
             if(mat[i][j]==0)
                 couleur.append("#ffffff");
             else if(mat[i][j]==2)
-                couleur.append("#e1d0d0");
+                couleur.append("#eee4da");
             else if(mat[i][j]==4)
-                couleur.append("#f9eaea");
+                couleur.append("#ece0c8");
             else if(mat[i][j]==8)
-                couleur.append("#f2cdcd");
+                couleur.append("#f2b179");
             else if(mat[i][j]==16)
-                couleur.append("#ee9f9f");
+                couleur.append("#f59563");
             else if(mat[i][j]==32)
-                couleur.append("#e49797");
+                couleur.append("#f57c5f");
             else if(mat[i][j]==64)
-                couleur.append("#ea5151");
+                couleur.append("#f65d3b");
             else if(mat[i][j]==128)
-                couleur.append("#f05454");
+                couleur.append("#edce71");
             else if(mat[i][j]==256)
-                couleur.append("#e82e2e");
+                couleur.append("#edcc61");
             else if(mat[i][j]==512)
-                couleur.append("#ee3636");
+                couleur.append("#ecc850");
             else if(mat[i][j]==1024)
-                couleur.append("#ff0014");
+                couleur.append("#edc53f");
             else if(mat[i][j]==2048)
-                couleur.append("#ba0e1b");
+                couleur.append("#F46060");
             else if(mat[i][j]==4096)
                 couleur.append("#8a1a1a");
         }

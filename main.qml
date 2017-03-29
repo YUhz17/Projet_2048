@@ -27,7 +27,7 @@ ApplicationWindow {
         button1.onClicked: vueObjetCpt.GameInitial();
         button2.onClicked: vueObjetCpt.GetBack();
     }
-
+//messageDialog.show(qsTr("Button 2 pressed"));
     MessageDialog {
         id: messageDialog
         title: qsTr("May I have your attention, please?")
