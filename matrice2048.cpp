@@ -17,6 +17,7 @@ matrice2048::matrice2048(QObject *parent) : QObject(parent)
     score=0;
     score_back=0;
     best_score=0;
+    game_over=false;
     initial();
 }
 
@@ -28,23 +29,30 @@ void matrice2048::GameInitial(){
         }
     score=0;
     score_back=0;
+    game_over=false;
     initial();
+}
+
+bool matrice2048::IsGameOver(){
+    if(game_over==true)
+        return true;
+    return false;
 }
 
 void matrice2048::initial()
 {
     srand((int)time(NULL));
     if (ismatricefull())
-        ;//a modifier
+        game_over=true;//a modifier
     else{
-        int ran_num=rand()%16;//生成一个0到15之间到随机数
-        int ran_num2=rand()%16;//如果ran_num2==15,那么生成4，不然生成2
-        while (mat[ran_num/4][ran_num%4] !=0)//如果这个位置不为0的话再生成一个
+        int ran_num=rand()%16;//creer un nombre aleatoire
+        int ran_num2=rand()%16;//si ran_num2==15,on cree nombre 4，sinon nombre 2
+        while (mat[ran_num/4][ran_num%4] !=0)//si cette position n'est pas 0, on cree une autre fois
             ran_num=rand()%16;
         if(ran_num2==15)
             mat[ran_num/4][ran_num%4]=4;
         else
-            mat[ran_num/4][ran_num%4]=2;//在这个位置生成2
+            mat[ran_num/4][ran_num%4]=2;//on cree nombre 2
         cptChanged();
     }
 }
@@ -73,21 +81,21 @@ void matrice2048::Left()
         for (int j=0;j<4;j++)
             mat_back[i][j]=mat[i][j];
     score_back=score;
-    int flag=0;//判断矩阵有没有进行变化，1为变化，0为不变
+    int flag=0;//juger la matrice si c'est déja modifié ou pas
     for(int i=0;i<4;i++)
         for(int j=0;j<4;j++){
             if(mat[i][j]!=0){
-                if(j<3 && mat[i][j]==mat[i][j+1]){//和右边那个相等
+                if(j<3 && mat[i][j]==mat[i][j+1]){//équal au nombre droit
                     mat[i][j+1]=2*mat[i][j];
                     mat[i][j]=0;
                     score+=mat[i][j+1];
                 }
-                else if(j<2 &&mat[i][j+1]==0 && mat[i][j]==mat[i][j+2]){//和右边第二个相等且中间那个为0
+                else if(j<2 &&mat[i][j+1]==0 && mat[i][j]==mat[i][j+2]){//équal au nombre deuxième droit
                     mat[i][j+2]=2*mat[i][j];
                     mat[i][j]=0;
                     score+=mat[i][j+2];
                 }
-                else if(j<1 &&mat[i][j+1]==0 && mat[i][j+2]==0 && mat[i][j]==mat[i][j+3]){//和右边第二个相等且中间那个为0
+                else if(j<1 &&mat[i][j+1]==0 && mat[i][j+2]==0 && mat[i][j]==mat[i][j+3]){//équal au nombre troisième droit
                     mat[i][j+3]=2*mat[i][j];
                     mat[i][j]=0;
                     score+=mat[i][j+3];
@@ -127,21 +135,21 @@ void matrice2048::Right()
         for (int j=0;j<4;j++)
             mat_back[i][j]=mat[i][j];
     score_back=score;
-    int flag=0;//判断矩阵有没有进行变化，1为变化，0为不变
+    int flag=0;
     for(int i=0;i<4;i++)
         for(int j=3;j>=0;j--){
             if(mat[i][j]!=0){
-                if(j>0 && mat[i][j]==mat[i][j-1]){//和右边那个相等
+                if(j>0 && mat[i][j]==mat[i][j-1]){
                     mat[i][j-1]=2*mat[i][j];
                     mat[i][j]=0;
                     score+=mat[i][j-1];
                 }
-                else if(j>1 &&mat[i][j-1]==0 && mat[i][j]==mat[i][j-2]){//和右边第二个相等且中间那个为0
+                else if(j>1 &&mat[i][j-1]==0 && mat[i][j]==mat[i][j-2]){
                     mat[i][j-2]=2*mat[i][j];
                     mat[i][j]=0;
                     score+=mat[i][j+2];
                 }
-                else if(j>2 &&mat[i][j-1]==0 && mat[i][j-2]==0 && mat[i][j]==mat[i][j-3]){//和右边第二个相等且中间那个为0
+                else if(j>2 &&mat[i][j-1]==0 && mat[i][j-2]==0 && mat[i][j]==mat[i][j-3]){
                     mat[i][j-3]=2*mat[i][j];
                     mat[i][j]=0;
                     score+=mat[i][j-3];
@@ -183,21 +191,21 @@ void matrice2048::Up()
         for (int j=0;j<4;j++)
             mat_back[i][j]=mat[i][j];
     score_back=score;
-    int flag=0;//判断矩阵有没有进行变化，1为变化，0为不变
+    int flag=0;
     for(int j=0;j<4;j++)
         for(int i=0;i<4;i++){
             if(mat[i][j]!=0){
-                if(i<3 && mat[i][j]==mat[i+1][j]){//和右边那个相等
+                if(i<3 && mat[i][j]==mat[i+1][j]){
                     mat[i+1][j]=2*mat[i][j];
                     mat[i][j]=0;
                     score+=mat[i+1][j];
                 }
-                else if(i<2 &&mat[i+1][j]==0 && mat[i][j]==mat[i+2][j]){//和右边第二个相等且中间那个为0
+                else if(i<2 &&mat[i+1][j]==0 && mat[i][j]==mat[i+2][j]){
                     mat[i+2][j]=2*mat[i][j];
                     mat[i][j]=0;
                     score+=mat[i+2][j];
                 }
-                else if(i<1 &&mat[i+1][j]==0 && mat[i+2][j]==0 && mat[i][j]==mat[i+3][j]){//和右边第二个相等且中间那个为0
+                else if(i<1 &&mat[i+1][j]==0 && mat[i+2][j]==0 && mat[i][j]==mat[i+3][j]){
                     mat[i+3][j]=2*mat[i][j];
                     mat[i][j]=0;
                     score+=mat[i+3][j];
@@ -237,21 +245,21 @@ void matrice2048::Down()
         for (int j=0;j<4;j++)
             mat_back[i][j]=mat[i][j];
     score_back=score;
-    int flag=0;//判断矩阵有没有进行变化，1为变化，0为不变
+    int flag=0;
     for(int j=0;j<4;j++)
         for(int i=3;i>=0;i--){
             if(mat[i][j]!=0){
-                if(i>0 && mat[i][j]==mat[i-1][j]){//和右边那个相等
+                if(i>0 && mat[i][j]==mat[i-1][j]){
                     mat[i-1][j]=2*mat[i][j];
                     mat[i][j]=0;
                     score+=mat[i-1][j];
                 }
-                else if(i>1 &&mat[i-1][j]==0 && mat[i][j]==mat[i-2][j]){//和右边第二个相等且中间那个为0
+                else if(i>1 &&mat[i-1][j]==0 && mat[i][j]==mat[i-2][j]){
                     mat[i-2][j]=2*mat[i][j];
                     mat[i][j]=0;
                     score+=mat[i-2][j];
                 }
-                else if(i>2 &&mat[i-1][j]==0 && mat[i-2][j]==0 && mat[i][j]==mat[i-3][j]){//和右边第二个相等且中间那个为0
+                else if(i>2 &&mat[i-1][j]==0 && mat[i-2][j]==0 && mat[i][j]==mat[i-3][j]){
                     mat[i-3][j]=2*mat[i][j];
                     mat[i][j]=0;
                     score+=mat[i-3][j];

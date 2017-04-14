@@ -12,8 +12,9 @@ public:
     void initial();
 
 
-    Q_PROPERTY(QString cptQMLscore READ readScore NOTIFY cptChanged);
-    Q_PROPERTY(QString cptQMLbest READ readBest NOTIFY cptChanged);
+    Q_PROPERTY(QString cptQMLscore READ readScore() NOTIFY cptChanged);
+    Q_PROPERTY(QString cptQMLbest READ readBest() NOTIFY cptChanged);
+    Q_PROPERTY(bool cptQMLGameOver READ IsGameOver() NOTIFY cptChanged);
     Q_PROPERTY(QList<QString> cptQMLcouleur READ readCouleur() NOTIFY cptChanged);
     Q_PROPERTY(QList<QString> cptQML READ readMatrice() NOTIFY cptChanged);
 
@@ -22,7 +23,7 @@ public:
 
     QString readScore();
     QString readBest();
-    QString readcolor11();
+    bool IsGameOver();
     bool ismatricefull();
 
     Q_INVOKABLE void Left();
@@ -44,6 +45,7 @@ private:
     int score;
     int score_back;
     int best_score;
+    bool game_over;
 };
 
 #endif // MATRICE2048_H

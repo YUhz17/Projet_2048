@@ -6,6 +6,9 @@ Item {
     property alias name: name
     width: 480
     height: 480
+    property alias gameover: gameover
+    property alias over: over
+    property alias text20: text20
     property alias text12: text12
     property alias rect11: rect11
     property alias text6: text6
@@ -541,22 +544,22 @@ Item {
             }
         }
 
-                Keys.onPressed: {
-                  switch (event.key) {
-                    case Qt.Key_Up:
-                      vueObjetCpt.Up();
-                      break;
-                    case Qt.Key_Down:
-                      vueObjetCpt.Down();
-                      break;
-                    case Qt.Key_Left:
-                      vueObjetCpt.Left();
-                      break;
-                    case Qt.Key_Right:
-                      vueObjetCpt.Right();
-                      break;
-                  }
-                }
+                        Keys.onPressed: {
+                          switch (event.key) {
+                            case Qt.Key_Up:
+                              vueObjetCpt.Up();
+                              break;
+                            case Qt.Key_Down:
+                              vueObjetCpt.Down();
+                              break;
+                            case Qt.Key_Left:
+                              vueObjetCpt.Left();
+                              break;
+                            case Qt.Key_Right:
+                              vueObjetCpt.Right();
+                              break;
+                          }
+                        }
     }
 
     Text {
@@ -653,4 +656,36 @@ Item {
             horizontalAlignment: Text.AlignHCenter
         }
     }
+
+    Rectangle {
+        id: gameover
+        x: 31
+        y: 248
+        width: 418
+        height: 84
+        color: "#f4d03f"
+        border.color: "#000000"
+        visible: vueObjetCpt.cptQMLGameOver
+
+        Text {
+            id: over
+            x: 0
+            y: 0
+            width: 418
+            height: 84
+            color: "#8a1a1a"
+            text: qsTr("Game Over!")
+            font.family: "Times New Roman"
+            font.bold: true
+            styleColor: "#8a1a1a"
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+            elide: Text.ElideMiddle
+            fontSizeMode: Text.Fit
+            textFormat: Text.AutoText
+            renderType: Text.NativeRendering
+            font.pixelSize: 30
+        }
+    }
+
 }
